@@ -3,7 +3,8 @@
 """ 
     This class provides several methods to simulate a m/m/c/k tail
 
-    @author: Roberto Maestre {rmaestre@paradigmatecnologico.com} Paradigmalabs 2012
+    @author: Roberto Maestre {rmaestre@paradigmatecnologico.com} 
+             Paradigmalabs 2012
 """
 from __future__ import division
 from math import pow
@@ -104,47 +105,50 @@ class mmck:
         return (self.lm() / (self.l * (1 - self.pn(self.k)))) - (1 / self.m)
 
 
-t_start = time.time()
-# Create mmck simulator object 
-# mmck(l,m,servers,tail limit)
-simulator = mmck(2.7,1.5,4,12)
+if __name__ == "__main__": 
+    # Create timestamp
+    t_start = time.time()
 
-# Some debug options
-print "\nM/M/c/K model simulation"
-print "------------------------"
+    # Create mmck simulator object 
+    # mmck(l,m,servers,tail limit)
+    simulator = mmck(2.7,1.5,4,12)
 
-print "\n+ MODEL PARAMETERS"
-print "\tLambda: %0.4f" % simulator.l
-print "\tMu: %0.4f" % simulator.m
-print "\tc: %0.4f" % simulator.c
-print "\tK: %0.4f" % simulator.k
+    # Some debug options
+    print "\nM/M/c/K model simulation"
+    print "------------------------"
 
-print "\tStability: %s (rho = %0.4f)" % (simulator.stability_condition(), simulator.rho)
+    print "\n+ MODEL PARAMETERS"
+    print "\tLambda: %0.4f" % simulator.l
+    print "\tMu: %0.4f" % simulator.m
+    print "\tc: %0.4f" % simulator.c
+    print "\tK: %0.4f" % simulator.k
 
-print "\n+ TAIL"
-print "\tMean number of clients (l) = %0.4f" % simulator.lm()
-print "\tMean length (lq) = %0.4f" % simulator.lq()
-print "\tMean time of a client waiting into the tail (w) = %0.4f" % simulator.w()
+    print "\tStability: %s (rho = %0.4f)" % (simulator.stability_condition(), simulator.rho)
 
-print "\n+ SYSTEM"
-print "\tMean time of a client into the system (wq) = %0.4f" % simulator.wq()
+    print "\n+ TAIL"
+    print "\tMean number of clients (l) = %0.4f" % simulator.lm()
+    print "\tMean length (lq) = %0.4f" % simulator.lq()
+    print "\tMean time of a client waiting into the tail (w) = %0.4f" % simulator.w()
 
-print "\n+ PROBABILITY DSTRIUTION"
-acum = 0
-acum += simulator.p0()
-print "\tP_0 = %0.10f" % simulator.p0()
-for n in range(1, simulator.k + 1):
-    a = simulator.pn(n)
-    if n < 10 or n == simulator.k:
-        print "\tP_%s = %0.10f" % (n, a)
-    elif n == 10 and simulator.k != 11:
-        print "\tP_%s = ..... " % n
-        print "\t..... "
-    acum += a
-print "\t[Total Probability: %s]\n" % acum
-nose.tools.assert_almost_equal(acum, 1.0)
+    print "\n+ SYSTEM"
+    print "\tMean time of a client into the system (wq) = %0.4f" % simulator.wq()
 
-print "Elapsed time: %0.8f" % (time.time() - t_start)
+    print "\n+ PROBABILITY DSTRIUTION"
+    acum = 0
+    acum += simulator.p0()
+    print "\tP_0 = %0.10f" % simulator.p0()
+    for n in range(1, simulator.k + 1):
+        a = simulator.pn(n)
+        if n < 10 or n == simulator.k:
+            print "\tP_%s = %0.10f" % (n, a)
+        elif n == 10 and simulator.k != 11:
+            print "\tP_%s = ..... " % n
+            print "\t..... "
+        acum += a
+    print "\t[Total Probability: %s]\n" % acum
+    nose.tools.assert_almost_equal(acum, 1.0)
+
+    print "Elapsed time: %0.8f" % (time.time() - t_start)
 
 
 
