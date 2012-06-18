@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
     # Create mmck simulator object 
     # mmck(l,m,servers,tail limit)
-    simulator = mmck(2.7,1.5,4,12)
+    simulator = mmck(10.7,1.5,8,200)
 
     # Some debug options
     print "\nM/M/c/K model simulation"
@@ -126,21 +126,21 @@ if __name__ == "__main__":
     print "\tStability: %s (rho = %0.4f)" % (simulator.stability_condition(), simulator.rho)
 
     print "\n+ TAIL"
-    print "\tMean number of clients (l) = %0.4f" % simulator.lm()
-    print "\tMean length (lq) = %0.4f" % simulator.lq()
-    print "\tMean time of a client waiting into the tail (w) = %0.4f" % simulator.w()
+    print "\tAverage number of clients (l) = %0.4f" % simulator.lm()
+    print "\tAverage length (lq) = %0.4f" % simulator.lq()
+    print "\tAverage waiting time for a client into the tail (w) = %0.4f" % simulator.w()
 
     print "\n+ SYSTEM"
-    print "\tMean time of a client into the system (wq) = %0.4f" % simulator.wq()
+    print "\tAverage waiting time into the system (wq) = %0.4f" % simulator.wq()
 
-    print "\n+ PROBABILITY DSTRIUTION"
+    print "\n+ PROBABILITY DISTRIBUTION"
     acum = 0
     acum += simulator.p0()
     print "\tP_0 = %0.10f" % simulator.p0()
     for n in range(1, simulator.k + 1):
         a = simulator.pn(n)
         if n < 10 or n == simulator.k:
-            print "\tP_%s = %0.10f" % (n, a)
+            print "\tP_%s = %0.15f" % (n, a)
         elif n == 10 and simulator.k != 11:
             print "\tP_%s = ..... " % n
             print "\t..... "
