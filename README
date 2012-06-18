@@ -1,0 +1,37 @@
+Roberto-Maestres-MacBook-Pro:mmck-CTMarkovChain rmaestre$ python simulate.py 
+
+M/M/c/K model simulation
+------------------------
+
++ MODEL PARAMETERS
+	Lambda: 2.7000
+	Mu: 1.5000
+	c: 4.0000
+	K: 12.0000
+	Stability: True (rho = 0.4500)
+
++ TAIL
+	Mean number of clients (l) = 1.9041
+	Mean length (lq) = 0.1042
+	Mean time of a client waiting into the tail (w) = 0.7053
+
++ SYSTEM
+	Mean time of a client into the system (wq) = 0.0386
+
++ PROBABILITY DSTRIUTION
+	P_0 = 0.1616378189
+	P_1 = 0.2909480740
+	P_2 = 0.2618532666
+	P_3 = 0.1571119599
+	P_4 = 0.0707003820
+	P_5 = 0.0318151719
+	P_6 = 0.0143168273
+	P_7 = 0.0064425723
+	P_8 = 0.0028991575
+	P_9 = 0.0013046209
+	P_10 = ..... 
+	..... 
+	P_12 = 0.0001188836
+	[Total Probability: 1.0]
+
+Elapsed time: 0.00022006
