@@ -6,34 +6,34 @@ M/M/c/K model simulation
 ------------------------
 
 + MODEL PARAMETERS
-	Lambda: 2.7000
+	Lambda: 10.7000
 	Mu: 1.5000
-	c: 4.0000
-	K: 12.0000
-	Stability: True (rho = 0.4500)
+	c: 8.0000
+	K: 200.0000
+	Stability: True (rho = 0.8917)
 
 + TAIL
-	Mean number of clients (l) = 1.9041
-	Mean length (lq) = 0.1042
-	Mean time of a client waiting into the tail (w) = 0.7053
+	Average number of clients (l) = 12.7227
+	Average length (lq) = 5.5893
+	Average waiting time for a client into the tail (w) = 1.1890
 
 + SYSTEM
-	Mean time of a client into the system (wq) = 0.0386
+	Average waiting time into the system (wq) = 0.5224
 
-+ PROBABILITY DSTRIUTION
-	P_0 = 0.1616378189
-	P_1 = 0.2909480740
-	P_2 = 0.2618532666
-	P_3 = 0.1571119599
-	P_4 = 0.0707003820
-	P_5 = 0.0318151719
-	P_6 = 0.0143168273
-	P_7 = 0.0064425723
-	P_8 = 0.0028991575
-	P_9 = 0.0013046209
++ PROBABILITY DISTRIBUTION
+	P_0 = 0.0004424480
+	P_1 = 0.003156128755068
+	P_2 = 0.011256859226408
+	P_3 = 0.026766309716126
+	P_4 = 0.047733252327091
+	P_5 = 0.068099439986650
+	P_6 = 0.080962667539684
+	P_7 = 0.082504813588058
+	P_8 = 0.073566792116019
+	P_9 = 0.065597056303450
 	P_10 = ..... 
 	..... 
-	P_12 = 0.0001188836
+	P_200 = 0.000000000020210
 	[Total Probability: 1.0]
 
-Elapsed time: 0.00022006
+Elapsed time: 0.00117803
